@@ -2,7 +2,7 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import Detail from "./Detail";
+import Detail from "./components/DatailPage/Detail";
 
 const Router = () => {
   return (
