@@ -29,7 +29,7 @@ const Title = styled.h1`
 `;
 
 const Rate = styled(Title)`
-  color: blue;
+  /* color: blue; */
   font-size: 35px;
   margin: 10px;
   font-weight: bold;
@@ -89,6 +89,16 @@ const Detail = () => {
     10
   )}일`;
 
+  const getTextColor = (idexNm) => {
+    if (idexNm === "좋음") {
+      return "green";
+    } else if (idexNm === "나쁨") {
+      return "red";
+    } else {
+      return "grey";
+    }
+  };
+
   return (
     <Container>
       <Header>
@@ -108,12 +118,13 @@ const Detail = () => {
           <BodyContainer>
             <RateContiner>
               <Text>통합대기환경등급</Text>
-              <Rate>{data.IDEX_NM}</Rate>
+              <Rate style={{ color: getTextColor(data.IDEX_NM) }}>
+                {data.IDEX_NM === "점검 중" ? "-" : data.IDEX_NM}
+              </Rate>
             </RateContiner>
           </BodyContainer>
         </RightBodyContainer>
       </BodyContainer>
-      {/* 여기에 다른 정보들도 추가할 수 있습니다. */}
     </Container>
   );
 };
